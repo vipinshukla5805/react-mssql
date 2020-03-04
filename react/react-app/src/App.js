@@ -77,6 +77,10 @@ let data = [
 let cols = [
   {
     icon: "",
+    label: "Select"
+  },
+  {
+    icon: "",
     label: "Order Number"
   },
   {
@@ -121,6 +125,7 @@ class RowItem extends React.Component {
     return (
       <li onClick={this.toggleRow.bind(this)} className={classes}>
         <div className="heading">
+          <div className="col"><input type="checkbox" checked={this.props.selected}  /></div>
           <div className="col">{this.props.id}</div>
           <div className="col">{this.props.name}</div>
           <div className="col">{this.props.details}</div>             <div className="col">{this.props.state}</div>     
@@ -246,20 +251,6 @@ class Table extends React.Component {
       headerFixed: true
     }
   }
-  
-//   handleScroll(e) {
-    
-//     let scrollTop = e.srcElement.body.scrollTop;
-//     console.log('scroll...', scrollTop, this.state.headerOffset);
-    
-    
-    
-    
-//     this.setState({
-//       headerFixed: true
-//     });
-//   }
-  
   componentDidMount() {
   //   window.addEventListener('scroll', this.handleScroll.bind(this));
     // THIS SEEMS THE ONLY PLACE WE CAN PICK UP THE REF FOR THE HEADER
@@ -273,10 +264,20 @@ class Table extends React.Component {
     
     // this.setState({headerOffset:ReactDOM.findDOMNode(this.refs.header)});
   }
+
+  selectAll = (event)=>{
+    this.setState({allSelected: event.target.checked})
+    this.props.data.map(item=>{
+      return item.selected = event.target.checked;
+    })
+  }
   
   render(){
     
     let columns = this.props.columns.map((item, inx) => {
+      if(inx === 0){
+        return( <div className="hcol" style={{textAlign:'center'}}>Select All <input type="checkbox" checked={this.state.allSelected} onClick={this.selectAll} /></div>)
+      }
       return (<HeaderColumn label={item.label}/>);
     });    
     
@@ -292,7 +293,9 @@ class Table extends React.Component {
     
    return (<div className="table">
           {this.props.children} 
-       <div className={classes} ref="header">{columns}<div className="shadow"></div></div>
+       <div className={classes} ref="header">
+       {columns}
+       <div className="shadow"></div></div>
           <ul>{rows}</ul>
          </div>); 
   }
