@@ -1,0 +1,48 @@
+[
+    [
+        {
+            "Id": 1,
+            "FirstName": "Pravin",
+            "MiddleName": null,
+            "LastName": "Panchal",
+            "DOB": "1995-02-03T00:00:00.000Z",
+            "Designation": "Account",
+            "ReportingTo": "Ravi Kumar",
+            "Salary": 35000,
+            "DepID": 3
+        },
+        {
+            "Id": 2,
+            "FirstName": "Ravi",
+            "MiddleName": null,
+            "LastName": "Pande",
+            "DOB": "1992-02-03T00:00:00.000Z",
+            "Designation": "HR",
+            "ReportingTo": "Gajanan",
+            "Salary": 30000,
+            "DepID": 1
+        },
+        {
+            "Id": 3,
+            "FirstName": "Ishwar",
+            "MiddleName": null,
+            "LastName": "Bhadarge",
+            "DOB": "1988-02-03T00:00:00.000Z",
+            "Designation": "Software Developer",
+            "ReportingTo": "Vipin",
+            "Salary": 30000,
+            "DepID": 2
+        },
+        {
+            "Id": 4,
+            "FirstName": "Vipin",
+            "MiddleName": null,
+            "LastName": "Shukla",
+            "DOB": "1985-02-09T00:00:00.000Z",
+            "Designation": "Senior Software Developer",
+            "ReportingTo": "Rahul",
+            "Salary": 60000,
+            "DepID": 2
+        }
+    ]
+]
